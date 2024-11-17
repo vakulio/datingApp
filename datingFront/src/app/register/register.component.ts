@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, output } from '@angular/core';
-import { AccountService } from '../_services/account.service';
-import { ILogin } from '../_models/login';
+import { AccountService } from '../services/account.service';
+import { ILogin } from '../models/login';
 import { FormsModule } from '@angular/forms';
 
 @Component({

@@ -4,6 +4,9 @@
 ## Get latest from `dotnet new gitignore`
 
 API/dating.db
+*.db-shm
+*.db-wal
+
 
 # dotenv files
 .env

@@ -1,11 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { AccountService } from './_services/account.service';
-import { HomeComponent } from './home/home.component';
+import { AccountService } from './services/account.service';
 import { NavComponent } from './nav/nav.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   standalone: true,
-  imports: [NavComponent, HomeComponent],
+  imports: [NavComponent, RouterOutlet],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
