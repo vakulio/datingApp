@@ -7,11 +7,12 @@ import { catchError, of } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [FormsModule, BsDropdownModule, RouterLink, RouterLinkActive],
+  imports: [FormsModule, BsDropdownModule, RouterLink, RouterLinkActive, TitleCasePipe],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

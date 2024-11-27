@@ -30,6 +30,15 @@ export const appRoutes: Route[] = [
         ]
     },
     {
+        path: 'not-found',
+        loadComponent: () => import('./errors/not-found/not-found.component').then(m => m.NotFoundComponent)
+    },
+    {
+        path: 'server-error',
+        pathMatch: 'full',
+        loadComponent: () => import('./home/home.component').then(m => m.HomeComponent)
+    },
+    {
         path: '**',
         pathMatch: 'full',
         loadComponent: () => import('./home/home.component').then(m => m.HomeComponent)
