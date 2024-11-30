@@ -18,24 +18,24 @@ public class AccountController(DataContext context, ITokenService tokenService) 
         {
             return BadRequest("Username already exists");
         }
+        return Ok();
+        // using var hmac = new HMACSHA512();
 
-        using var hmac = new HMACSHA512();
-
-        var user = new AppUser
-        {
-            UserName = registerDto.Username.ToLower(),
-            PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-            PasswordSalt = hmac.Key
-        };
+        // var user = new AppUser
+        // {
+        //     UserName = registerDto.Username.ToLower(),
+        //     PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
+        //     PasswordSalt = hmac.Key
+        // };
         
-        await context.Users.AddAsync(user);
-        await context.SaveChangesAsync();
+        // await context.Users.AddAsync(user);
+        // await context.SaveChangesAsync();
         
-        return new UserDto
-        {
-            Username = registerDto.Username,
-            Token = tokenService.CreateToken(user)
-        };
+        // return new UserDto
+        // {
+        //     Username = registerDto.Username,
+        //     Token = tokenService.CreateToken(user)
+        // };
     }
 
     private async Task<bool> UserExists(string username)
