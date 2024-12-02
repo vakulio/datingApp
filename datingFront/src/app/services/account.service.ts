@@ -3,13 +3,14 @@ import { Injectable, inject, signal } from '@angular/core';
 import { IUser } from '../models/user';
 import { map } from 'rxjs';
 import { ILogin } from '../models/login';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class AccountService {
 
   private http = inject(HttpClient);
-  readonly baseUrl = 'https://localhost:5001/api/';
+  readonly baseUrl = environment.apiUrl;
   currentUser = signal<IUser | null>(null);
 
   login(model: ILogin) {

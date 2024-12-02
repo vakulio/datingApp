@@ -16,7 +16,7 @@ export const appRoutes: Route[] = [
                 loadComponent: () => import('./members/members-list/members-list.component').then(m => m.MembersListComponent)
             },
             {
-                path: 'members:id',
+                path: 'members/:username',
                 loadComponent: () => import('./members/member-detail/member-detail.component').then(m => m.MemberDetailComponent),
             },
             {

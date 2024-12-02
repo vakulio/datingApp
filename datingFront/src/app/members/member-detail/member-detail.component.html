@@ -1,1 +1,62 @@
-<p>member-detail works!</p>
+@let user = member();
+
+@if (!user) {
+    <h1>User not found</h1>
+    <p>The user you are looking for is not found</p>
+} @else {
+    <div class="row">
+        <div class="col-4">
+            <div class="card">
+                <img src="{{user.photoUrl || './assets/user.png'}}" alt="{{user.userName}}" class="card-img img-thumbnail">
+                <div class="card-body">
+                    <div>
+                        <strong>Location:</strong>
+                        <p>{{user.city}}, {{user.country}}</p>
+                        
+                        <strong>Age:</strong>
+                        <p>{{user.age}}</p>
+
+                        <strong>Last Active:</strong>
+                        <p>{{user.lastActive | date:'medium'}}</p>
+
+                        <strong>Member Since:</strong>
+                        <p>{{user.createdAt | date:'medium'}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="btn-group d-flex">
+                            <button class="btn btn-primary">Like</button>
+                            <button class="btn btn-success">Message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-8">
+            <tabset class="member-tabset">
+                <tab heading="About {{ user.knownAs}}">
+                    <h4>Description</h4>
+                    <p>{{user.introduction}}</p>
+                    <h4>Looking for</h4>
+                    <p>{{user.lookingFor}}</p>
+                </tab>
+                <tab heading="Interests">
+                    <h4>Interests</h4>
+                    <p>{{user.interests}}</p>
+                </tab>
+                <tab heading="Photos">
+                    <H4>Photos</H4>
+                    <gallery 
+                        [items]="images()" 
+                        class="gallery"
+                    ></gallery>
+                </tab>
+                <tab heading="Messages">
+                    <H4>Messages</H4>
+                    <p>Coming soon</p>
+                </tab>
+            </tabset>
+        </div>
+    </div>
+}
+
