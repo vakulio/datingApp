@@ -1,5 +1,6 @@
 import { Route } from '@angular/router';
 import { authGuard } from './guards/auth.guard';
+import { preventUnsavedChangesGuard } from './guards/prevent-unsaved-changes.guard';
 
 export const appRoutes: Route[] = [
     {
@@ -18,6 +19,11 @@ export const appRoutes: Route[] = [
             {
                 path: 'members/:username',
                 loadComponent: () => import('./members/member-detail/member-detail.component').then(m => m.MemberDetailComponent),
+            },
+            {
+                path: 'member/edit',
+                loadComponent: () => import('./members/member-edit/member-edit.component').then(m => m.MemberEditComponent),
+                canDeactivate: [preventUnsavedChangesGuard]
             },
             {
                 path: 'lists',
