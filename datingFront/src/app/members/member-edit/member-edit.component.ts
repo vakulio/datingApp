@@ -8,11 +8,12 @@ import { DatePipe } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs';
+import { PhotoEditorComponent } from "../photo-editor/photo-editor.component";
 
 @Component({
   selector: 'app-member-edit',
   standalone: true,
-  imports: [TabsModule, DatePipe, FormsModule],
+  imports: [TabsModule, DatePipe, FormsModule, PhotoEditorComponent],
   templateUrl: './member-edit.component.html',
   styleUrl: './member-edit.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -44,7 +45,10 @@ export class MemberEditComponent implements OnInit {
         this.editForm()?.reset(this.member())
       })
     }
-   
+  }
+
+  onMemberChange(member: Member) {
+    this.member.set(member)
   }
 }
 

@@ -73,8 +73,7 @@
  
                 </tab>
                 <tab heading="Edit photos">
-                    <h4>Interests</h4>
-                    <p>{{user.interests}}</p>
+                    <app-photo-editor [member]="user" (memberChange)="onMemberChange($event)"></app-photo-editor>
                 </tab>
             </tabset>
         </div>
